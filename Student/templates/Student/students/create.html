@@ -1,0 +1,68 @@
+{% extends 'Student/base.html' %}
+
+{% block content %}
+<div class="container">
+	<br>
+<h1 style="color: green; margin-top: 1%">Add Student</h1>
+<hr>
+    {% if messages %}
+    <div>
+    {% for message in messages %}
+        <p style="color: green">{{ message }}</p>
+	{% endfor %}
+    </div>
+    {% endif %}
+
+
+<p style="color: red">{{error}}</p>
+<br>
+<form method="POST" action="{% url 'Student:create' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-md-6">
+			Student Name:<br>
+			<input type="text" name="stu_name">
+			<br><br>
+			Email:<br>
+			<input type="text" name="email">
+			<br><br>
+			Student's Father Name:<br>
+			<input type="text" name="stu_father_name">
+			<br><br>
+			Student's Mother Name:<br>
+			<input type="text" name="stu_mother_name">
+			<br><br>
+			Student's Father Occupation:<br>
+			<input type="text" name="stu_father_occupation">
+			<br><br>
+			Student's Mother Occupation:<br>
+			<input type="text" name="stu_mother_occupation">
+			<br><br>
+		</div>
+		<div class="col-md-6">
+			Student's Father Mobile:<br>
+			<input type="text" name="stu_father_mobilenumber">
+			<br><br>
+			Student's Mother Mobile:<br>
+			<input type="text" name="stu_mother_mobilenumber">
+			<br><br>
+			Student's Class:<br>
+			<input type="text" name="stu_class">
+			<br><br>
+			Student's Batch:<br>
+			<input type="text" name="stu_batch">
+			<br><br>
+			Student's Gender:<br>
+			<input type="text" name="stu_gender">
+			<br><br>
+			
+			<input  class="btn btn-primary" type="submit" value="Upload">
+
+		</div>
+	</div>
+
+</form>
+</div>
+
+
+{% endblock %}

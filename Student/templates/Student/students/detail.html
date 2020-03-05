@@ -1,0 +1,53 @@
+{% extends 'Student/base.html' %}
+{% load static %}
+
+{% block title %}
+    Student details
+{% endblock %}
+{% block content %}
+<div class="container">
+
+        <div class="row" style="margin-top: 3%">
+            <div class="col-md-10">
+            <h1 style="color: green">Student Details</h1>
+	<hr>
+
+	<table class="table table-striped table-hover" align="center">
+			<thead style="background-color: #5AC8FA">
+				<tr>
+					<th>Student Id</th>
+					<th>Student Name</th>
+					<th>Student Email</th>
+					<th>Student's Father Name</th>
+					<th>Student's Mother Name</th>
+					<th>Student's Father Occupation</th>
+					<th>Student's Mother Occupation</th>
+					<th>Student's Father Mobile</th>
+					<!-- <th>Student's Mother Mobile</th> -->
+					<th>Student Class</th>
+					<th>Student Batch</th>
+					<th>Student Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for students in student %}
+				<tr>
+					<td>{{students.id}}</td>
+					<td>{{students.stu_name}}</td>
+					<td>{{students.email}}</td>
+					<td>{{students.stu_father_name}}</td>
+					<td>{{students.stu_mother_name}}</td>
+					<td>{{students.stu_father_occupation}}</td>
+					<td>{{students.stu_mother_occupation}}</td>
+					<td>{{students.stu_father_mobilenumber}}</td>
+					<!-- <td>{{students.stu_mother_mobilenumber}}</td> -->
+					<td>{{students.stu_class}}</td>
+					<td>{{students.stu_batch}}</td>
+					<td>{{students.stu_gender}}</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+		</table>
+</div>
+
+{% endblock %} 
