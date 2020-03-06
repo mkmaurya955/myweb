@@ -8,7 +8,7 @@ from django.db.models import Q
 
 def home(request):
 	students=Student.objects
-	return render(request, 'Student/students/home.html', {'students':students})
+	return render(request, 'Student/home.html', {'students':students})
 
 
 def create(request):
@@ -20,17 +20,17 @@ def create(request):
             messages.success(request, "Successfully saved and Your student id is: " +str(student.id))
             return  redirect('/Student/create')
         else:
-            return render(request, 'Student/students/create.html', {'error':'Please enter all required fields'})
+            return render(request, 'Student/create.html', {'error':'Please enter all required fields'})
     else:
         form = RegisterForm()
 
-    return render(request, 'Student/students/create.html', {'form': form})
+    return render(request, 'Student/create.html', {'form': form})
 
 
 
 def detail(request):
 	student=Student.objects.all()
-	return render(request, 'Student/students/detail.html', {'student':student})
+	return render(request, 'Student/detail.html', {'student':student})
 
 def search(request):
     if request.method== 'POST':
@@ -38,11 +38,11 @@ def search(request):
         if srch:
             match=Student.objects.filter(Q(id__icontains=srch) | Q(stu_name__icontains=srch) | Q(email__icontains=srch))
             if match:
-                return render(request, 'Student/students/search.html' , {'sr':match})
+                return render(request, 'Student/search.html' , {'sr':match})
             else:
                 messages.error(request,'no result found')
         else:
             return redirect('/Student/search')
-    return render(request, 'Student/students/search.html')
+    return render(request, 'Student/search.html')
 
 

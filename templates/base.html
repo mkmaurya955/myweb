@@ -32,11 +32,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-           <!--  <a class="nav-item nav-link" href="{% url 'Student:create' %}"><i class="fa fa-plus"></i> Add Student</a> -->
-          </div>
-        </div>
-      </div>
+    <div class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'create' %}"><i class="fa fa-plus"></i> Add Student</a>
+        <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}"> Log Out</a>
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <input type="hidden" name="">
+        </form>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'signup' %}"> Sign Up</a>
+      <a class="nav-item nav-link" href="{% url 'login' %}"> Login</a>
+      
+      {% endif %}
+    </div>
+  </div>
+</div>
 </nav>
 
 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container" style="margin-top: 2%">
+	<h1 style="color: green">Student Portal</h1>
+	<hr>
+	<table border="0">
+		<tr>
+			<td style="padding: 50px; background-color: silver">
+				<h1><a href="{% url 'create' %}">Add Student</a></h1>
+			</td>
+			<td style="padding: 50px; background-color: silver">
+				<h1><a href="{% url 'detail' %}">Student Detail</a></h1>
+			</td>
+			<td style="padding: 50px; background-color: silver">
+				<h1><a href="{% url 'search' %}">Search Student</a></h1>	
+			</td>
+		</tr>	
+	</table>	
+</div>
+	
+
+{% endblock %}

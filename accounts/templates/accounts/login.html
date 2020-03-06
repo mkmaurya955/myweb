@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top: 3%">
+<h1 style="color: green;">Log In</h1>
+<hr>
+<p style="color: red">{{error}}</p>
+<br>
+<form method="POST" action="{% url 'login' %}">
+	{% csrf_token %}
+
+	Username:<br>
+	<input type="text" name="username">
+	<br><br>
+	Password:<br>
+	<input type="password" name="password">
+	<br><br>
+	<input  class="btn btn-primary" type="submit" value="Log In">
+
+
+
+</form>
+</div>
+
+
+{% endblock %}

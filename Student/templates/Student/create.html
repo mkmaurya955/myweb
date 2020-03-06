@@ -1,4 +1,4 @@
-{% extends 'Student/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="container">
@@ -16,7 +16,7 @@
 
 <p style="color: red">{{error}}</p>
 <br>
-<form method="POST" action="{% url 'Student:create' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
 	{% csrf_token %}
 	<div class="row">
 		<div class="col-md-6">
